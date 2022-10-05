@@ -17,8 +17,8 @@ public:
 
 	Menu();
 
-	int DisplayMenu();
-	int GetMenuOption();
+	Menu::MenuItem DisplayMenu();
+	Menu::MenuItem GetMenuOption();
 	int GetInputValue() const;
 
 private:

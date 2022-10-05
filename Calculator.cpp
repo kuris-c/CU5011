@@ -11,17 +11,17 @@ void Calculator::RunCalculator()
 	ProcessInput(m_menu.DisplayMenu());
 }
 
-int Calculator::Add(int num1, int num2)
+int Calculator::Add(int num1, int num2) const
 {
 	return num1 + num2;
 }
 
-int Calculator::Subtract(int num1, int num2)
+int Calculator::Subtract(int num1, int num2) const
 {
 	return num1 - num2;
 }
 
-int Calculator::Divide(int num1, int num2)
+int Calculator::Divide(int num1, int num2) const
 {
 	if (num2 != 0)
 	{
@@ -35,12 +35,12 @@ int Calculator::Divide(int num1, int num2)
 	}
 }
 
-int Calculator::Multiply(int num1, int num2)
+int Calculator::Multiply(int num1, int num2) const
 {
 	return num1 * num2;
 }
 
-int Calculator::Power(int base, int exponent)
+int Calculator::Power(int base, int exponent) const
 {
 	int result = base;
 
@@ -71,39 +71,39 @@ void Calculator::InputNumbers(int& int1, int& m_int2)
 	std::cin >> m_num2;
 }
 
-void Calculator::ProcessInput(int input)
+void Calculator::ProcessInput(Menu::MenuItem input)
 {
 	switch (input)
 	{
-	case (int)Menu::MenuItem::Add:
+	case Menu::MenuItem::Add:
 	{
 		InputNumbers(m_num1, m_num2);
 		std::cout << "The result is: " << Add(m_num1, m_num2) << std::endl;
 		break;
 	}
 
-	case (int)Menu::MenuItem::Subtract:
+	case Menu::MenuItem::Subtract:
 	{
 		InputNumbers(m_num1, m_num2);
 		std::cout << "The result is: " << Subtract(m_num1, m_num2) << std::endl;
 		break;
 	}
 
-	case (int)Menu::MenuItem::Multiply:
+	case Menu::MenuItem::Multiply:
 	{
 		InputNumbers(m_num1, m_num2);
 		std::cout << "The result is: " << Multiply(m_num1, m_num2) << std::endl;
 		break;
 	}
 
-	case (int)Menu::MenuItem::Divide:
+	case Menu::MenuItem::Divide:
 	{
 		InputNumbers(m_num1, m_num2);
 		std::cout << "The result is: " << Divide(m_num1, m_num2) << std::endl;
 		break;
 	}
 
-	case (int)Menu::MenuItem::Power:
+	case Menu::MenuItem::Power:
 	{
 		InputNumbers(m_num1, m_num2);  //base and exponent
 		std::cout << "The result is: " << Power(m_num1, m_num2) << std::endl;

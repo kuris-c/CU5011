@@ -5,7 +5,7 @@ Menu::Menu()
     m_input = 0;
 }
 
-int Menu::DisplayMenu()
+Menu::MenuItem Menu::DisplayMenu()
 {
 	system("cls");
 	std::cout << "#=======================#" << std::endl;
@@ -22,7 +22,7 @@ int Menu::DisplayMenu()
 	return GetMenuOption();
 }
 
-int Menu::GetMenuOption()
+Menu::MenuItem Menu::GetMenuOption() 
 {
 	do
 	{
@@ -30,7 +30,7 @@ int Menu::GetMenuOption()
 		std::cin >> m_input;
 	} while (m_input < (int)MenuItem::Add || m_input >(int)MenuItem::Exit);
 
-	return m_input;
+	return (Menu::MenuItem)m_input;
 }
 
 int Menu::GetInputValue() const
