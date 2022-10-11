@@ -15,21 +15,24 @@ public:
 	//Getters
 	std::string GetUniversityName() const;
 	std::string GetUniversityAddress() const;
-	
+	bool GetIsUniversityOpen() const;
+
 	//Complete Trimester
 	void TeachTrimester();
 
 	//Add Students At Start Of New Year
-	void RegisterStudent();
+	void RegisterStudent(std::string studentName, std::string studentAddress, std::string loginUsername, std::string loginPassword, bool studentHasDisability = false, bool studentHasStudentFinance = false);
 
 private:
 	//University Information
 	std::string name;
 	std::string address;
+	bool isUniversityOpen;
 
 	//Student Count
-	const int maxNumberOfStudents = 100;
+	static const int maxNumberOfStudents = 100;
 	int currentNumberOfStudents;
+	Student student[maxNumberOfStudents];
 
 	//Offered Modules
 	enum class Modules

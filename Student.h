@@ -6,7 +6,8 @@ class Student
 {
 public:
 	//Constructors
-	Student(std::string studentName, std::string studentAddress, std::string loginUsername, std::string loginPassword, bool studentHasDisability = false , bool studentHasStudentFinance = false);
+	Student();
+	Student(std::string studentName, std::string studentAddress, std::string loginUsername, std::string loginPassword, bool studentHasDisability = false, bool studentHasStudentFinance = false);
 
 	//Getters
 
@@ -27,6 +28,7 @@ private:
 		bool hasDisability;
 		bool hasStudentFinance;
 	};
+	ID id;
 
 	//Student Credits
 	int credits;
