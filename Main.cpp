@@ -6,6 +6,7 @@ int main()
 
 	while (uni.GetIsUniversityOpen())
 	{
+		system("CLS");
 		uni.TeachTrimester();
 	}
 

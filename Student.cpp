@@ -3,15 +3,33 @@
 Student::Student()
 {
 	credits = 0;
+	id.hasDisability = false;
+	id.hasStudentFinance = false;
 }
 
-Student::Student(std::string studentName, std::string studentAddress, std::string loginUsername, std::string loginPassword, bool studentHasDisability, bool studentHasStudentFinance)
+Student::Student(ID studentID)
 {
 	credits = 0;
-	id.name = studentName;
-	id.address = studentAddress;
-	id.username = loginUsername;
-	id.password = loginPassword;
-	id.hasDisability = studentHasDisability;
-	id.hasStudentFinance = studentHasStudentFinance;
+	id.number = studentID.number;
+	id.name = studentID.name;
+	id.address = studentID.address;
+	id.username = studentID.username;
+	id.password = studentID.password;
+	id.hasDisability = studentID.hasDisability;
+	id.hasStudentFinance = studentID.hasStudentFinance;
+}
+
+int Student::GetStudentCredits() const
+{
+	return credits;
+}
+
+void Student::SetID(const ID& id)
+{
+	this->id = id;
+}
+
+void Student::Learn()
+{
+
 }

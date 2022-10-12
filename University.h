@@ -5,6 +5,7 @@
 //C++ Librares
 #include <string>
 #include <iostream>
+#include <vector>
 
 class University
 {
@@ -20,8 +21,9 @@ public:
 	//Complete Trimester
 	void TeachTrimester();
 
-	//Add Students At Start Of New Year
-	void RegisterStudent(std::string studentName, std::string studentAddress, std::string loginUsername, std::string loginPassword, bool studentHasDisability = false, bool studentHasStudentFinance = false);
+	//Add Students At Start Of New Year / View Students
+	void RegisterStudent();
+	void DisplayStudents();
 
 private:
 	//University Information
@@ -31,18 +33,18 @@ private:
 
 	//Student Count
 	static const int maxNumberOfStudents = 100;
-	int currentNumberOfStudents;
-	Student student[maxNumberOfStudents];
+	std::vector<Student> student;
 
 	//Offered Modules
 	enum class Modules
 	{
-		GamesProgramming = 1,
-		GamesEngine = 2,
-		ToyDevelopment = 3,
-		ShaderProgramming = 4
+		GamesProgramming = 30,
+		GamesEngine = 30,
+		ToyDevelopment = 40,
+		ShaderProgramming = 30
 	};
 
 	//Year Progress (in Trimesters)
 	int trimesterCount;
+	int yearCount;
 };

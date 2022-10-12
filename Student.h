@@ -5,16 +5,7 @@
 class Student
 {
 public:
-	//Constructors
-	Student();
-	Student(std::string studentName, std::string studentAddress, std::string loginUsername, std::string loginPassword, bool studentHasDisability = false, bool studentHasStudentFinance = false);
-
-	//Getters
-
-	//Setters
-
-private:
-	//Student Information
+	//Forward Declaration
 	struct ID
 	{
 		//REQUIRED VARIABLES
@@ -28,6 +19,24 @@ private:
 		bool hasDisability;
 		bool hasStudentFinance;
 	};
+
+	//Constructors
+	Student();
+	Student(ID studentID);
+
+	//Getters
+	int GetStudentCredits() const;
+
+	const ID& GetID() { return id; }
+
+	//Setters
+	void SetID(const ID& id);
+
+	//Action Functions
+	void Learn();
+
+private:
+	//Student Information
 	ID id;
 
 	//Student Credits
