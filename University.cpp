@@ -89,8 +89,8 @@ void University::ProcessInput(int input)
 		if (trimesterCount == 0)
 		{
 			//Create Temporary Student
-			Student::ID id;
-			Student tempStudent(id);
+			Undergraduate::ID id;
+			Undergraduate tempStudent(id);
 
 			//Register Student Details And Push Back
 			student.push_back(tempStudent.RegisterStudent(tempStudent.GetID(), student.size()));

@@ -28,7 +28,7 @@ public:
 	//Getters
 	const ID& GetID() { return id; }
 	int GetCredits() const;
-	int GetYearsOfStudy() const;
+	int GetYearsToStudy() const;
 
 	//Setters
 	void SetID(const ID& id);
@@ -43,5 +43,23 @@ private:
 
 	//Student Progress
 	int credits{ 0 };
-	int yearsOfStudy{ 0 };
+	int yearsToStudy{ 0 };
+};
+
+class Undergraduate : public Student
+{
+public:
+	using Student::Student;
+
+private:
+	int yearsToStudy{ 3 };
+};
+
+class Postgraduate : public Student
+{
+public:
+	using Student::Student;
+
+private:
+	int yearsToStudy{ 1 };
 };

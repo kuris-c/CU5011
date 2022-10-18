@@ -5,9 +5,9 @@ int Student::GetCredits() const
 	return credits;
 }
 
-int Student::GetYearsOfStudy() const
+int Student::GetYearsToStudy() const
 {
-	return yearsOfStudy;
+	return yearsToStudy;
 }
 
 void Student::SetID(const ID& id)
