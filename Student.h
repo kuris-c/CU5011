@@ -1,6 +1,10 @@
 #pragma once
-//C++ Librares
+//C++ Libraries
 #include <string>
+#include <vector>
+
+//Header Files
+#include "Utility.h"
 
 class Student
 {
@@ -8,37 +12,36 @@ public:
 	//Forward Declaration
 	struct ID
 	{
-		//REQUIRED VARIABLES
-		int number;
-		std::string name;
-		std::string address;
-		std::string username;
-		std::string password;
+		int number{ 0 };
+		std::string name{};
+		std::string address{};
+		std::string username{};
+		std::string password{};
 
-		//OPTIONAL VARIABLES
-		bool hasDisability;
-		bool hasStudentFinance;
+		bool hasDisability{ false };
+		bool hasStudentFinance{ false };
 	};
 
-	//Constructors
-	Student();
-	Student(ID studentID);
+	//Constructor
+	Student(ID studentID) : id(studentID) {};
 
 	//Getters
-	int GetStudentCredits() const;
-
 	const ID& GetID() { return id; }
+	int GetCredits() const;
+	int GetYearsOfStudy() const;
 
 	//Setters
 	void SetID(const ID& id);
 
 	//Action Functions
+	Student RegisterStudent(Student tempStudent, int size);
 	void Learn();
 
 private:
-	//Student Information
+	//Student ID
 	ID id;
 
-	//Student Credits
-	int credits;
+	//Student Progress
+	int credits{ 0 };
+	int yearsOfStudy{ 0 };
 };

@@ -2,49 +2,65 @@
 //Header Files
 #include "Student.h"
 
-//C++ Librares
-#include <string>
-#include <iostream>
-#include <vector>
-
 class University
 {
 public:
-	//Constructors
-	University(std::string uniName, std::string uniAddress);
+	//Singleton
+	static University* Instance();
 
 	//Getters
 	std::string GetUniversityName() const;
 	std::string GetUniversityAddress() const;
-	bool GetIsUniversityOpen() const;
+	bool IsUniversityOpen() const;
+	int GetTrimester() const;
 
-	//Complete Trimester
-	void TeachTrimester();
-
-	//Add Students At Start Of New Year / View Students
-	void RegisterStudent();
-	void DisplayStudents();
+	//Action Functions
+	void AdvanceTrimester(int currentTrimester);
 
 private:
+	//Constructors
+	University(std::string uniName, std::string uniAddress) : name(uniName), address(uniAddress) {};
+	University(const University& university) {};
+	University& operator=(const University& university) {};
+
 	//University Information
 	std::string name;
 	std::string address;
-	bool isUniversityOpen;
+	bool isUniversityOpen{ true };
 
 	//Student Count
-	static const int maxNumberOfStudents = 100;
-	std::vector<Student> student;
+	static const int maxNumberOfStudents{ 100 };
+	std::vector<Student> student;	
 
 	//Offered Modules
 	enum class Modules
 	{
-		GamesProgramming = 30,
-		GamesEngine = 30,
-		ToyDevelopment = 40,
-		ShaderProgramming = 30
+		//GAMES PROGRAMMING
+		//Year 1
+		ComputerGamingHardware = 30,
+		GameDesignAndDevelopment = 30,
+		GameProgramming = 30,
+		LogicAndMathematicalTechniques = 30,
+
+		//Year 2
+		AdvancedCPPForGames = 30,
+		AugmentedToyDevelopment = 30,
+		GameEngineDevelopment = 30,
+		GraphicsAndShaderProgramming = 30,
+
+		//Year 3
+		ArtificialIntelligence = 15,
+		ArtificalIntelligenceForGames = 15,
+		CreativeTechnologyProject = 30,
+		NetworkingForGames = 15,
+		PrototypeDevelopment = 30,
+		ResearchRelatedLearning = 15,
+		WorkRelatedLearningForGamesAndAnimation = 15
 	};
 
-	//Year Progress (in Trimesters)
-	int trimesterCount;
-	int yearCount;
+	//Year Progress
+	int trimesterCount{ 0 };
+
+	//Private Action Functions
+	void ProcessInput(int input);
 };

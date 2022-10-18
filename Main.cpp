@@ -2,12 +2,12 @@
 
 int main()
 {
-	University uni("London Metropolitan University", "166-220 Holloway Rd\nLondon\nN7 8DB");
+	//Insantiate the Singleton
+	University::Instance();
 
-	while (uni.GetIsUniversityOpen())
+	while (University::Instance()->IsUniversityOpen())
 	{
-		system("CLS");
-		uni.TeachTrimester();
+		University::Instance()->AdvanceTrimester(University::Instance()->GetTrimester());
 	}
 
 	system("pause");
