@@ -69,13 +69,14 @@ void University::ProcessInput(int input)
 
 		for (auto& students : student)
 		{
-			std::cout << "Name: " << students.GetID().name << std::endl;
-			std::cout << "Address: " << students.GetID().address << std::endl;
-			std::cout << "Username: " << students.GetID().username << std::endl;
-			std::cout << "Password: " << students.GetID().password << std::endl;
+			std::cout << "Name: " << students->GetID().name << std::endl;
+			std::cout << "Address: " << students->GetID().address << std::endl;
+			std::cout << "Username: " << students->GetID().username << std::endl;
+			std::cout << "Password: " << students->GetID().password << std::endl;
 			std::cout << "\n--------------------------------\n";
-			std::cout << "Has Disability: " << students.GetID().hasDisability << std::endl;
-			std::cout << "Has Student Finance: " << students.GetID().hasStudentFinance << std::endl;
+			std::cout << "Has Disability: " << students->GetID().hasDisability << std::endl;
+			std::cout << "Has Student Finance: " << students->GetID().hasStudentFinance << std::endl;
+			std::cout << "Years To Study: " << students->GetYearsToStudy() << std::endl;
 
 			system("pause");
 		}
@@ -88,12 +89,33 @@ void University::ProcessInput(int input)
 	case 4:
 		if (trimesterCount == 0)
 		{
-			//Create Temporary Student
-			Undergraduate::ID id;
-			Undergraduate tempStudent(id);
+			//Create Temporary Student ID
+			Student::ID id;
+			int choice;
 
-			//Register Student Details And Push Back
-			student.push_back(tempStudent.RegisterStudent(tempStudent.GetID(), student.size()));
+			//Choose Student Type
+			std::cout << "\nWhich Type Of Student Are You Registering?\n\n[1] Undergraduate\n[2] Postgradate\n[3] Doctorate" << std::endl;
+			Utility::Instance()->InputTooltip(); std::cin >> choice;
+
+			switch (choice)
+			{
+			case 1:
+				student.push_back(new Undergraduate(id));
+				break;
+			case 2:
+				student.push_back(new Postgraduate(id));
+				break;
+			case 3:
+				student.push_back(new Doctorate(id));
+				break;
+			default:
+				std::cout << "\nTry Again.\n";
+				Utility::Instance()->InputTooltip(); std::cin >> choice;
+				break;
+			}
+
+			//Register Student Details
+			student.back()->RegisterStudent(student.size());
 			break;
 		}
 		break;
