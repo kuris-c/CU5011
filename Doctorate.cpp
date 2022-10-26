@@ -2,5 +2,5 @@
 
 int Doctorate::GetYearsToStudy() const
 {
-	return yearsToStudy;
+    return yearsToStudy;
 }

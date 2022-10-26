@@ -1,6 +1,8 @@
+//Header Guard
 #pragma once
+
 //Header Files
-#include "Student"
+#include "Student.h"
 
 class Doctorate : public Student
 {
@@ -13,25 +15,6 @@ public:
 
 	//Setters
 
-
-	//Offered Modules
-	enum class Modules
-	{
-		//GAMES PROGRAMMING
-		//Year 1
-
-
-		//Year 2
-
-
-		//Year 3
-
-
-		//Year 4
-	};
-
-	//Action Functions
-	//void Learn() override;
 
 protected:
 	int yearsToStudy{ 4 };

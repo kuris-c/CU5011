@@ -2,5 +2,5 @@
 
 int Postgraduate::GetYearsToStudy() const
 {
-	return yearsToStudy;
+    return yearsToStudy;
 }

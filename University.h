@@ -1,6 +1,15 @@
+//Header Guard
 #pragma once
+
+//C++ Libraries
+#include <vector>
+
 //Header Files
 #include "Student.h"
+#include "Undergraduate.h"
+#include "Postgraduate.h"
+#include "Doctorate.h"
+#include "Utility.h"
 
 class University
 {
@@ -9,15 +18,20 @@ public:
 	static University* Instance();
 
 	//Getters
-	const std::string& GetUniversityName() const;
+	std::string GetUniversityName() const;
 	std::string GetUniversityAddress() const;
 	bool IsUniversityOpen() const;
 	int GetTrimester() const;
+	int GetNumberOfStudents() const;
+
+	//Setters
+	void SetTrimester(int addTrimester = 1);
+	void SetUniversityName(std::string newName);
+	void SetUniversityAddress(std::string newAddress);
+	void SetIsUniversityOpen(bool isOpen);
 
 	//Action Functions
-	void AdvanceTrimester(int currentTrimester);
-
-	//Action Functions
+	void AdvanceTrimester();
 
 private:
 	//Constructors
@@ -31,11 +45,11 @@ private:
 	bool isUniversityOpen{ true };
 
 	//Student Count
-	static const int maxNumberOfStudents{ 100 };
+	static const int maxNumberOfStudents{ 1400 };
 	std::vector<Student*> student;
 
 	//Year Progress
-	int trimesterCount{ 0 };
+	int trimesterCount{ 1 };
 
 	//Private Action Functions
 	void ProcessInput(int input);

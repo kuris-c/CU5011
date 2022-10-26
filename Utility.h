@@ -1,19 +1,13 @@
+//Header Guard
 #pragma once
+
 //C++ Libraries
 #include <iostream>
+#include <string>
 
 class Utility
 {
 public:
-	//Singleton
-	static Utility* Instance();
-
-	//Utility Functions
-	void InputTooltip();
-
-private:
-	//Constructors
-	Utility() {};
-	Utility(const Utility& utility) {};
-	Utility& operator=(const Utility& utility) {};
+	static void InputTooltip();
+	static void DisplayList(std::string prompts[], int numberOfPrompts);
 };

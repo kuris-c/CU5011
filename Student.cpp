@@ -1,48 +1,61 @@
 #include "Student.h"
 
+int Student::GetIDNumber() const
+{
+    return idNumber;
+}
+
+std::string Student::GetName() const
+{
+    return name;
+}
+
+std::string Student::GetAddress() const
+{
+    return address;
+}
+
+std::string Student::GetUsername() const
+{
+    return username;
+}
+
+std::string Student::GetPassword() const
+{
+    return password;
+}
+
+bool Student::HasDisability() const
+{
+    return hasDisability;
+}
+
+int Student::StudentFinanceAmount() const
+{
+    return studentFinanceAmount;
+}
+
 int Student::GetCredits() const
 {
-	return credits;
+    return credits;
 }
 
-void Student::SetID(const ID& id)
+void Student::SetCredits(int creditsAmount)
 {
-	this->id = id;
+    credits += creditsAmount;
 }
 
-void Student::RegisterStudent(int size)
+void Student::SetYearsToStudy(int yearsAmount)
 {
-	id.number = size;
+    yearsToStudy += yearsAmount;
+}
 
-	system("CLS");
-	std::cout << "Input Students Name";
-	std::cout << "\n_________________________________________" << std::endl;
-	std::cout << " -> ";
-	std::cin.ignore();
-	std::getline(std::cin, id.name);
+void Student::RegisterStudent(int studentNumber)
+{
+    idNumber = studentNumber;
 
-	std::cout << "\nInput Students Address, on a single line with spaces";
-	std::cout << "\n_________________________________________" << std::endl;
-	std::cout << " -> ";
-	std::getline(std::cin, id.address);
+    system("CLS");
 
-	std::cout << "\nInput Students Username";
-	std::cout << "\n_________________________________________" << std::endl;
-	std::cout << " -> ";
-	std::getline(std::cin, id.username);
-
-	std::cout << "\nInput Students Password";
-	std::cout << "\n_________________________________________" << std::endl;
-	std::cout << " -> ";
-	std::getline(std::cin, id.password);
-
-	std::cout << "\nHas your student registered with a disability?\n\n[0] No\n[1] Yes";
-	std::cout << "\n_________________________________________" << std::endl;
-	std::cout << " -> ";
-	std::cin >> id.hasDisability;
-
-	std::cout << "\nHas your student registered with student finance?\n\n[0] No\n[1] Yes";
-	std::cout << "\n_________________________________________" << std::endl;
-	std::cout << " -> ";
-	std::cin >> id.hasStudentFinance;
+    //Name
+    
 }
